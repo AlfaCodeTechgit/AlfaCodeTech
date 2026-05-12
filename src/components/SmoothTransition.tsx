@@ -30,10 +30,11 @@ export function SmoothTransition({
 
   return (
     <div
-      className="transition-all"
+      className="transition-opacity duration-300"
       style={{
         opacity: isTransitioning ? 0 : 1,
-        transition: `opacity ${duration}ms ease-in-out`,
+        transitionProperty: "opacity",
+        willChange: "opacity",
       }}
     >
       {displayChildren}
@@ -78,10 +79,12 @@ export function FadeIn({
   return (
     <div
       ref={setRef}
-      className={`transition-all duration-1000 ${className}`}
+      className={`transition-opacity duration-1000 ${className}`}
       style={{
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? "translateY(0)" : "translateY(20px)",
+        transitionProperty: "opacity, transform",
+        willChange: "opacity, transform",
       }}
     >
       {children}
@@ -194,10 +197,12 @@ export function ScaleTransition({
   return (
     <div
       ref={setRef}
-      className={`transition-all duration-1000 ${className}`}
+      className={`transition-opacity duration-1000 ${className}`}
       style={{
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? "scale(1)" : "scale(0.95)",
+        transitionProperty: "opacity, transform",
+        willChange: "opacity, transform",
       }}
     >
       {children}

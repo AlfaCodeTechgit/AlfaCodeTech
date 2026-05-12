@@ -1,8 +1,9 @@
-import { Link, Outlet } from "@tanstack/react-router";
+import { Link, Outlet, useLocation } from "@tanstack/react-router";
 import { Mail, MapPin, MessageCircle, Menu, Phone, X } from "lucide-react";
 import { useState } from "react";
 import logo from "@/assets/logo.jpeg";
 import { SmoothTransition } from "./SmoothTransition";
+import SplashCursor from "./SplashCursor";
 
 const WHATSAPP_URL =
   "https://wa.me/5511999999999?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20AlfaCode%20Tech";
@@ -17,12 +18,28 @@ const nav = [
 
 export function SiteLayout() {
   const [open, setOpen] = useState(false);
+  const location = useLocation();
+
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
+      {location.pathname === "/" && (
+        <SplashCursor
+          DENSITY_DISSIPATION={3.5}
+          VELOCITY_DISSIPATION={2}
+          PRESSURE={0.1}
+          CURL={3}
+          SPLAT_RADIUS={0.2}
+          SPLAT_FORCE={6000}
+          COLOR_UPDATE_SPEED={10}
+          SHADING
+          RAINBOW_MODE={false}
+          COLOR="#A855F7"
+        />
+      )}
       <header className="sticky top-0 z-40 backdrop-blur-xl bg-background/70 border-b border-border/50">
         <div className="container mx-auto flex items-center justify-between px-6 py-4">
           <Link to="/" className="flex items-center gap-3 group">
-            <img src={logo} alt="AlfaCode Tech" className="h-10 w-10 rounded-lg object-cover ring-1 ring-primary/30 group-hover:ring-primary transition" />
+            <img src={logo} alt="AlfaCode Tech" decoding="async" className="h-10 w-10 rounded-lg object-cover ring-1 ring-primary/30 group-hover:ring-primary transition" />
             <span className="font-bold tracking-tight text-lg">
               ALFACODE <span className="text-primary">TECH</span>
             </span>
@@ -78,7 +95,7 @@ export function SiteLayout() {
           <div className="grid gap-10 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
             <div>
               <Link to="/" className="flex items-center gap-3 group">
-                <img src={logo} alt="AlfaCode Tech" className="h-10 w-10 rounded-lg object-cover ring-1 ring-primary/30 group-hover:ring-primary transition" />
+                <img src={logo} alt="AlfaCode Tech" loading="lazy" decoding="async" className="h-10 w-10 rounded-lg object-cover ring-1 ring-primary/30 group-hover:ring-primary transition" />
                 <span className="font-bold tracking-tight text-lg">
                   ALFACODE <span className="text-primary">TECH</span>
                 </span>

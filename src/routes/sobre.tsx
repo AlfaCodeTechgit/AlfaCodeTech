@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Target, Eye, Heart } from "lucide-react";
 import { FadeIn } from "../components/SmoothTransition";
+import ElectricBorder from "../components/ElectricBorder";
 import logo from "../assets/logo-home.png";
 
 export const Route = createFileRoute("/sobre")({
@@ -28,11 +29,15 @@ function Sobre() {
             Combinamos design, engenharia e estratégia para entregar soluções que escalam.
           </p>
           <div className="mt-12 flex flex-col items-center">
-            <img 
-              src={logo} 
-              alt="AlfaCode Tech Logo" 
-              className="w-48 h-48 md:w-64 md:h-64 object-contain rounded-2xl shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 cursor-pointer"
-            />
+            <ElectricBorder color="#5227FF" speed={1} chaos={0.12} borderRadius={16}>
+              <img
+                src={logo}
+                alt="AlfaCode Tech Logo"
+                loading="lazy"
+                decoding="async"
+                className="w-48 h-48 md:w-64 md:h-64 object-contain rounded-2xl shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 cursor-pointer"
+              />
+            </ElectricBorder>
           </div>
         </div>
       </section>

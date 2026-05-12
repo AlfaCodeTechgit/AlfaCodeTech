@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Code2, Cloud, Smartphone, Sparkles, Cpu, Zap } from "lucide-react";
 import logo from "../assets/logo-home.png";
 import { FadeIn, SlideTransition } from "../components/SmoothTransition";
+import ElectricBorder from "../components/ElectricBorder";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -32,11 +33,14 @@ function Index() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
             {/* Logo side */}
             <SlideTransition direction="left" className="flex justify-center md:justify-start order-2 md:order-1">
-              <img 
-                src={logo} 
-                alt="AlfaCode Tech Logo" 
-                className="w-full max-w-sm md:max-w-md lg:max-w-lg h-auto object-contain drop-shadow-lg hover:drop-shadow-xl transition-all duration-300"
-              />
+              <ElectricBorder color="#5227FF" speed={1} chaos={0.12} borderRadius={24}>
+                <img
+                  src={logo}
+                  alt="AlfaCode Tech Logo"
+                  decoding="async"
+                  className="w-full max-w-sm md:max-w-md lg:max-w-lg h-auto object-contain drop-shadow-lg hover:drop-shadow-xl transition-all duration-300"
+                />
+              </ElectricBorder>
             </SlideTransition>
 
             {/* Content side */}

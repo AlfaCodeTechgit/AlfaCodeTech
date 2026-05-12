@@ -255,7 +255,6 @@
     animation: glow 2s ease-in-out infinite;
   }
 
-
   /* Transições suaves para links e botões */
   a,
   button {
@@ -266,5 +265,4 @@
   html {
     scroll-behavior: smooth;
   }
-}
 }
